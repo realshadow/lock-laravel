@@ -20,8 +20,8 @@ class LockCreatePermissionsTable extends Migration
             $table->string('role')->nullable();
             $table->string('type');
             $table->string('action');
-            $table->string('resource_type')->nullable();
-            $table->integer('resource_id')->nullable();
+            $table->string('target_type')->nullable();
+            $table->integer('target_id')->nullable();
         });
     }
 

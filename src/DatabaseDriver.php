@@ -81,8 +81,8 @@ class DatabaseDriver implements Driver
             'caller_id' => $caller->getCallerId(),
             'type' => $permission->getType(),
             'action' => $permission->getAction(),
-            'resource_type' => $permission->getResourceType(),
-            'resource_id' => $permission->getResourceId(),
+            'target_type' => $permission->getTargetType(),
+            'target_id' => $permission->getTargetId(),
         ]);
 
         $this->resetPermissionsCacheForCaller($caller);
@@ -101,16 +101,16 @@ class DatabaseDriver implements Driver
             ->where('type', $permission->getType())
             ->where('action', $permission->getAction());
 
-        if (is_null($permission->getResourceType())) {
-            $query->whereNull('resource_type');
+        if (is_null($permission->getTargetType())) {
+            $query->whereNull('target_type');
         } else {
-            $query->where('resource_type', $permission->getResourceType());
+            $query->where('target_type', $permission->getTargetType());
         }
 
-        if (is_null($permission->getResourceId())) {
-            $query->whereNull('resource_id');
+        if (is_null($permission->getTargetId())) {
+            $query->whereNull('target_id');
         } else {
-            $query->where('resource_id', $permission->getResourceId());
+            $query->where('target_id', $permission->getTargetId());
         }
 
         $query->delete();
@@ -131,16 +131,16 @@ class DatabaseDriver implements Driver
             ->where('type', $permission->getType())
             ->where('action', $permission->getAction());
 
-        if (is_null($permission->getResourceType())) {
-            $query->whereNull('resource_type');
+        if (is_null($permission->getTargetType())) {
+            $query->whereNull('target_type');
         } else {
-            $query->where('resource_type', $permission->getResourceType());
+            $query->where('target_type', $permission->getTargetType());
         }
 
-        if (is_null($permission->getResourceId())) {
-            $query->whereNull('resource_id');
+        if (is_null($permission->getTargetId())) {
+            $query->whereNull('target_id');
         } else {
-            $query->where('resource_id', $permission->getResourceId());
+            $query->where('target_id', $permission->getTargetId());
         }
 
         return (bool) $query->first();
@@ -179,8 +179,8 @@ class DatabaseDriver implements Driver
             'role' => $role->getRoleName(),
             'type' => $permission->getType(),
             'action' => $permission->getAction(),
-            'resource_type' => $permission->getResourceType(),
-            'resource_id' => $permission->getResourceId(),
+            'target_type' => $permission->getTargetType(),
+            'target_id' => $permission->getTargetId(),
         ]);
 
         $this->resetPermissionsCacheForRole($role);
@@ -200,16 +200,16 @@ class DatabaseDriver implements Driver
             ->where('type', $permission->getType())
             ->where('action', $permission->getAction());
 
-        if (is_null($permission->getResourceType())) {
-            $query->whereNull('resource_type');
+        if (is_null($permission->getTargetType())) {
+            $query->whereNull('target_type');
         } else {
-            $query->where('resource_type', $permission->getResourceType());
+            $query->where('target_type', $permission->getTargetType());
         }
 
-        if (is_null($permission->getResourceId())) {
-            $query->whereNull('resource_id');
+        if (is_null($permission->getTargetId())) {
+            $query->whereNull('target_id');
         } else {
-            $query->where('resource_id', $permission->getResourceId());
+            $query->where('target_id', $permission->getTargetId());
         }
 
         $query->delete();
@@ -231,16 +231,16 @@ class DatabaseDriver implements Driver
             ->where('type', $permission->getType())
             ->where('action', $permission->getAction());
 
-        if (is_null($permission->getResourceType())) {
-            $query->whereNull('resource_type');
+        if (is_null($permission->getTargetType())) {
+            $query->whereNull('target_type');
         } else {
-            $query->where('resource_type', $permission->getResourceType());
+            $query->where('target_type', $permission->getTargetType());
         }
 
-        if (is_null($permission->getResourceId())) {
-            $query->whereNull('resource_id');
+        if (is_null($permission->getTargetId())) {
+            $query->whereNull('target_id');
         } else {
-            $query->where('resource_id', $permission->getResourceId());
+            $query->where('target_id', $permission->getTargetId());
         }
 
         return (bool) $query->first();

@@ -173,11 +173,11 @@ class UserManagementController extends BaseController
     {
         $userId = Input::get('user');
         $action = Input::get('action');
-        $resource = Input::get('resource');
+        $target = Input::get('target');
 
         $user = User::find($userId);
 
-        $this->lockManager->caller($user)->toggle($action, $resource);
+        $this->lockManager->caller($user)->toggle($action, $target);
 
         return Redirect::route('user_management');
     }
